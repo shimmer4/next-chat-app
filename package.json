@@ -1,14 +1,12 @@
 {
-  "homepage": "https://shimmer4.github.io/next-chat-app",
   "name": "next-chat-app",
+  "homepage": "https://shimmer4.github.io/next-chat-app",
   "private": true,
   "scripts": {
-    "replaceFilePaths": "node replacer.js",
     "dev": "next dev",
-    "build": "next build && next export -o build && npm run replaceFilePaths",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "export": "next export -o build && npm run replaceFilePaths",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },

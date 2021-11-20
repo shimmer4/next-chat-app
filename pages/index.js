@@ -1,3 +1,5 @@
+// https://tishonator.com/blog/how-to-host-a-next-js-app-on-github-pages
+
 import React from 'react'
 import axios from 'axios'
 import styles from '../styles/Home.module.css'
