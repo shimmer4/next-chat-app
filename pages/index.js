@@ -1,5 +1,3 @@
-// https://www.freecodecamp.org/news/deploy-a-react-app-to-github-pages/
-// https://shimmer4.github.io/next-chat-app
 
 import React from 'react'
 import axios from 'axios'
