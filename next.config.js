@@ -1,12 +1,10 @@
-const isProd = process.env.NODE_ENV === 'production'
-
+// next.config.js
 module.exports = {
-  assetPrefix: isProd ? '/next-chat-app/' : '',
   async headers() {
     return [
       {
         // matching all API routes
-        source: "*",
+        source: "/:path*",
         headers: [
           { key: "Access-Control-Allow-Credentials", value: "true" },
           { key: "Access-Control-Allow-Origin", value: "*" },
@@ -16,4 +14,4 @@ module.exports = {
       }
     ]
   }
-}
+};
