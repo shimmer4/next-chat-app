@@ -25,7 +25,6 @@ export default function Home() {
   else {
     return (
       <div className={styles.container}>
-        <h3>[sussy code :flushed:]</h3>
         <h1>welcome {login.username}</h1>
         <h4>{login.password}</h4>
         <MainBlock />
