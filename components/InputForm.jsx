@@ -1,11 +1,13 @@
 import React from 'react'
 import { TextField } from '@mui/material'
+import socket from './socket'
 
 function InputForm() {
 
     function handleSubmit(event) {
         event.preventDefault()
-        console.log(event.target.elements[0].value)
+        // console.log(event.target.elements[0].value)
+        socket.emit('message', event.target.elements[0].value)
         event.target.elements[0].value = ''
     }
 

@@ -1,15 +1,29 @@
 import React from 'react'
 import styles from '../styles/MainBlock.module.scss'
+import socket from './socket'
 
-import { io } from 'socket.io-client'
 
 import InputForm from './InputForm'
 import ShowList from './ShowList'
 
 const MainBlock = () => {
 
+    React.useEffect( () => {
+
+        socket.on('connect', socket => {
+            console.log('connected')
+        })
+
+        socket.on('message', data => {
+            console.log('message recieved from server : ', data)
+        })
+
+    }, [] )
+
+
     function handleClick() {
         console.log('clicked')
+        socket.emit('clicked')
     }
 
 
