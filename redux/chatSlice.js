@@ -7,7 +7,6 @@ export const chatSlice = createSlice( {
   initialState : initialState,
   reducers: {
     setChat: (state, action) => {
-        console.log('redux here :-')
         let tempArray = [action.payload]
         initialState = initialState.concat(tempArray)
     },
