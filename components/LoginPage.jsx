@@ -29,7 +29,7 @@ const LoginPage = () => {
             dispatch( returnLogin() )
             setUsernameError(false)
             setPasswordError(false)
-            router.push('/')
+            router.push('/home')
         }
     }
 
