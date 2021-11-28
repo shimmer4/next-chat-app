@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-var initialState = [ {"name":"bot", "message": "welcome to next-chat-app"} ]
+var initialState = []
 
 export const chatSlice = createSlice( {
   name: 'login',

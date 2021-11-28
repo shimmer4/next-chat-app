@@ -12,17 +12,20 @@ export default function Home() {
   const router = useRouter()
   const login = useSelector(state => state.login)
 
-  if(!login.username) {return <p>enter username and password</p>}
-
-  else {
-    return (
-      <div className={styles.container}>
-        <h1>welcome {login.username}</h1>
-        <h4>{login.password}</h4>
-        <MainBlock />
-      </div>
-    )
-  }
+  return (
+    <div className={styles.container}>
+      {
+        login ? ( 
+            <>
+              <h1>welcome {login.username}</h1>
+              <h4>{login.password}</h4>
+              <MainBlock />
+            </>
+          ) 
+        : <h2>please log in</h2>
+      }
+    </div>
+  )
   
 }
 
