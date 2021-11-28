@@ -11,6 +11,7 @@ export default function Home() {
 
   const router = useRouter()
   const login = useSelector(state => state.login)
+  const socketConnected = useSelector(state => state.socket)
 
   return (
     <div className={styles.container}>
@@ -19,6 +20,10 @@ export default function Home() {
             <>
               <h1>welcome {login.username}</h1>
               <h4>{login.password}</h4>
+              {
+                socketConnected ? <h2>server online 🟢</h2>
+                : <h2>connecting to server...</h2>
+            }
               <MainBlock />
             </>
           ) 
@@ -26,7 +31,6 @@ export default function Home() {
       }
     </div>
   )
-  
 }
 
 

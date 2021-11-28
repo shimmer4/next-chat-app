@@ -7,16 +7,18 @@ import socket from './socket'
 import { useSelector, useDispatch } from 'react-redux';
 
 import { setChat, returnChat } from '../redux/chatSlice'
+import { setSocket } from '../redux/socketSlice'
 
 const ShowList = () => {
 
     const chat = useSelector(state => state.chat)
+    const socketConnected = useSelector(state => state.socket)
     const dispatch = useDispatch()
 
     React.useEffect( () => {
-
-        socket.on('connect', socket => {
+        socket.on('connect', () => {
             console.log('connected')
+            dispatch( setSocket(socket.connected) )
         })
 
         socket.on('message', data => {
@@ -29,19 +31,6 @@ const ShowList = () => {
 
     return (
         <List >
-            {/* <ListItem alignItems="flex-start">
-                <ListItemText
-                    primary="shimmer."
-                    secondary="I'll be in your neighborhood doing errands this week"
-                />
-            </ListItem>
-            <Divider variant="inset" component="li" />
-            <ListItem alignItems="flex-start">
-                <ListItemText
-                    primary="rio."
-                    secondary="are u a nigger? please dont tell me ur a nigger for god's sake"
-                />
-            </ListItem> */}
             {
                 chat.map( (msg, index) => {
                     return (
