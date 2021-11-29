@@ -1,13 +1,13 @@
 import React from 'react'
-import { useRouter } from 'next/router'
+// import { useRouter } from 'next/router'
 
 const index = () => {
 
-    const router = useRouter()
+    // const router = useRouter()
 
-    React.useEffect( () => {
-        router.push('/login')
-    }, [] )
+    // React.useEffect( () => {
+    //     router.push('/login')
+    // }, [] )
 
     return <p>Redirecting to login page...</p>
 }
