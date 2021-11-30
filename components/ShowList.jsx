@@ -35,7 +35,7 @@ const ShowList = () => {
             {
                 chat.map( (msg, index) => {
                     return (
-                        <div className={ msg.name===login.username ? (styles.msg_wrapper_self) : (styles.msg_wrapper_other) }>
+                        <div key={index} className={ msg.name===login.username ? (styles.msg_wrapper_self) : (styles.msg_wrapper_other) }>
                             <p className={styles.message}>
                                 <span className={styles.username}>{msg.name}</span> : {msg.message}
                             </p>
