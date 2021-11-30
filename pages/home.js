@@ -18,12 +18,12 @@ export default function Home() {
       {
         login ? ( 
             <>
-              <h1>welcome {login.username}</h1>
-              <h4>{login.password}</h4>
-              {
+              {/* <h1>welcome {login.username}</h1> */}
+              {/* <h4>{login.password}</h4> */}
+              {/* {
                 socketConnected ? <h2>server online 🟢</h2>
                 : <h2>connecting to server...</h2>
-            }
+              } */}
               <MainBlock />
             </>
           ) 

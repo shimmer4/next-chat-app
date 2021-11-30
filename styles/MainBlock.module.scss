@@ -1,21 +1,23 @@
-$h-and-w : 300px;
-
 .container {
+    height: 100vh;
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: column;
+    background-color: red;
+    justify-content: space-between;
+    padding: 0;
+    
+    .msg_list {
+        height: 90%;
+        padding: 10px;
+        background-color: pink;
+        overflow-y : scroll;
+    }
 
     .input_form {
-        height: $h-and-w;
-        width: autow;
+        height: 10%;
         background-color: greenyellow;
         padding: 20px;
     }
     
-    .msg_list {
-        height: $h-and-w;
-        padding: 10px;
-        width: auto;
-        background-color: pink;
-    }
 }
 
