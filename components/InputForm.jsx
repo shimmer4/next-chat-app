@@ -7,6 +7,7 @@ import styles from '../styles/InputForm.module.scss'
 function InputForm() {
 
     const login = useSelector(state => state.login)
+    const socketConnected = useSelector(state => state.socket)
 
     function handleSubmit(event) {
         event.preventDefault()
@@ -23,9 +24,21 @@ function InputForm() {
 
     return (
         <form className={styles.message_form} onSubmit={handleSubmit}>
-            {/* <TextField label="Message" variant="standard" autoComplete="off" defaultValue="Hello World"/> */}
-            <input className={styles.input_form} type="text" autoComplete="off" placeHolder="message"></input>
-            <button type="submit" className={styles.input_button}>SEND</button>
+            {
+                socketConnected ? (  // input available if socket is connected
+                    <>
+                        <input className={styles.input_form} type="text" autoComplete="off" placeholder="message"></input>
+                        <button type="submit" className={styles.input_button}>SEND</button>
+                    </>
+                )
+                :   // else disables the input 
+                (
+                    <>
+                        <input disabled className={styles.input_form} type="text" autoComplete="off" placeholder="message"></input>
+                        <button disabled type="submit" className={styles.input_button}>SEND</button>
+                    </>
+                )
+            }
         </form>
     )
 }

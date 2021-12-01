@@ -13,10 +13,15 @@ export default function Home() {
   const login = useSelector(state => state.login)
   const socketConnected = useSelector(state => state.socket)
 
+  React.useEffect( () => {
+    if (!login) { router.push('/login') }
+  }, [] )
+
   return (
     <div className={styles.container}>
       {
-        login ? ( 
+        login ? 
+          ( 
             <>
               {/* <h1>welcome {login.username}</h1> */}
               {/* <h4>{login.password}</h4> */}
@@ -27,7 +32,10 @@ export default function Home() {
               <MainBlock />
             </>
           ) 
-        : <h2>please log in</h2>
+        : 
+          ( 
+            <h2>redirecting to login...</h2>
+          )
       }
     </div>
   )

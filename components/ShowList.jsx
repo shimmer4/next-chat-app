@@ -17,6 +17,8 @@ const ShowList = () => {
     const dispatch = useDispatch()
 
     React.useEffect( () => {
+        socket.connect()  // manually connecting to socket
+
         socket.on('connect', () => {
             console.log('connected')
             dispatch( setSocket(socket.connected) )
@@ -27,6 +29,8 @@ const ShowList = () => {
             dispatch( setChat(data) )
             dispatch( returnChat() )
         })
+
+        if (!login) { socket.disconnect() }  // dsconnecting socket if no login credentials
 
     }, [] )
 
