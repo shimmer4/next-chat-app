@@ -1,23 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+$height-perc : 10%;
+
+// 
+
+
 .container {
+    background-image: url("https://source.unsplash.com/b707uqc3FoI");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+    font-family: 'Montserrat', sans-serif;
     height: 100vh;
     display: flex;
     flex-direction: column;
-    background-color: red;
     justify-content: space-between;
     padding: 0;
     
     .msg_list {
-        height: 90%;
+        height: 100% - $height-perc;
         padding: 10px;
-        background-color: pink;
+        // background-color: pink;
         overflow-y : scroll;
     }
 
     .input_form {
-        height: 10%;
-        background-color: greenyellow;
-        padding: 20px;
+        height: $height-perc;
+        // background-color: greenyellow;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 15px;
+
+        @media (max-height: 552px) {
+            padding: 0px;
+        }
+        
     }
     
 }
+
 

@@ -2,6 +2,7 @@ import React from 'react'
 import { TextField } from '@mui/material'
 import socket from './socket'
 import { useSelector } from 'react-redux';
+import styles from '../styles/InputForm.module.scss'
 
 function InputForm() {
 
@@ -14,16 +15,18 @@ function InputForm() {
             "name" : login.username,
             "message" : event.target.elements[0].value
         }
-        socket.emit('message', data)
+        if ( data.message !== '' ) {
+            socket.emit('message', data)
+        }
         event.target.elements[0].value = ''
     }
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <TextField label="Message" variant="standard" autoComplete="off" defaultValue="Hello World"/>
-            </form>
-        </div>
+        <form className={styles.message_form} onSubmit={handleSubmit}>
+            {/* <TextField label="Message" variant="standard" autoComplete="off" defaultValue="Hello World"/> */}
+            <input className={styles.input_form} type="text" autoComplete="off" placeHolder="message"></input>
+            <button type="submit" className={styles.input_button}>SEND</button>
+        </form>
     )
 }
 
