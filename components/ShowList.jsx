@@ -21,6 +21,7 @@ const ShowList = () => {
 
         socket.on('connect', () => {
             console.log('connected')
+            socket.emit('user_connected', login)
             dispatch( setSocket(socket.connected) )
         })
 
