@@ -68,3 +68,27 @@
 
 
 
+.msg_wrapper_bot {
+    display: flex;
+    justify-content: center;
+
+    .message {
+
+        margin: 13px 0px;
+        padding: 4px 14px;
+        position: relative;
+        background-color: rgba(0, 0, 0, .2);
+        border-radius: 10px;
+        color: white;
+        
+        .username {
+            color: green;
+            font-weight: bold;
+            display: none;
+        }
+        .colon { display: none; }
+    }    
+}
+
+
+

@@ -40,9 +40,13 @@ const ShowList = () => {
             {
                 chat.map( (msg, index) => {
                     return (
-                        <div key={index} className={ msg.name===login.username ? (styles.msg_wrapper_self) : (styles.msg_wrapper_other) }>
+                        <div key={index} className={ 
+                            msg.name===login.username ? (styles.msg_wrapper_self) 
+                            : msg.name==='bot' ? (styles.msg_wrapper_bot) 
+                            : (styles.msg_wrapper_other) 
+                        }>
                             <p className={styles.message}>
-                                <span className={styles.username}>{msg.name}</span> : {msg.message}
+                                <span className={styles.username}>{msg.name}</span> <span className={styles.colon}>:</span> {msg.message}
                             </p>
                         </div>
                     )
