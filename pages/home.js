@@ -3,18 +3,25 @@ import React from 'react'
 import axios from 'axios'
 import styles from '../styles/Home.module.css'
 import { useRouter } from 'next/router'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux';
 
 import MainBlock from '../components/MainBlock'
+import { returnLogin, setLogin } from '../redux/loginSlice';
 
 export default function Home() {
 
   const router = useRouter()
   const login = useSelector(state => state.login)
   const socketConnected = useSelector(state => state.socket)
+  const dispatch = useDispatch()
 
   React.useEffect( () => {
-    if (!login) { router.push('/login') }
+    if ( localStorage.getItem('login') ) {
+      dispatch( setLogin( JSON.parse(localStorage.getItem('login')) ) )
+      dispatch( returnLogin() )
+      router.push('/home')
+    }
+    else { router.push('/login') }
   }, [] )
 
   return (

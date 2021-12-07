@@ -47,6 +47,11 @@ const ShowList = () => {
                         }>
                             <p className={styles.message}>
                                 <span className={styles.username}>{msg.name}</span> <span className={styles.colon}>:</span> {msg.message}
+                                {
+                                    msg.time ? <span className={styles.time}> ({msg.time}) </span>
+                                    : <></>
+                                }
+                                
                             </p>
                         </div>
                     )

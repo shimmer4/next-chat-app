@@ -15,6 +15,14 @@ const LoginPage = () => {
     const login = useSelector(state => state.login)
     const dispatch = useDispatch()
 
+    React.useEffect( () => {
+        if ( localStorage.getItem('login') ) {
+            dispatch( setLogin( JSON.parse(localStorage.getItem('login')) ) )
+            dispatch( returnLogin() )
+            router.push('/home')
+        }
+    }, [] )
+
     function handleSubmit(event) {
         event.preventDefault()
         const data = {
@@ -29,6 +37,7 @@ const LoginPage = () => {
             dispatch( returnLogin() )
             setUsernameError(false)
             setPasswordError(false)
+            localStorage.setItem('login', JSON.stringify(data) )
             router.push('/home')
         }
     }

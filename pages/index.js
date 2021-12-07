@@ -9,7 +9,7 @@ const index = () => {
     //     router.push('/login')
     // }, [] )
 
-    return <p>Redirecting to login page...</p>
+    return <p></p>
 }
 
 export default index
