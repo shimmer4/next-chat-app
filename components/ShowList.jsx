@@ -1,12 +1,11 @@
 import React from 'react'
 import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
+import axios from 'axios'
 import socket from './socket'
 import { useSelector, useDispatch } from 'react-redux';
 import styles from '../styles/ShowList.module.scss'
 
-import { setChat, returnChat } from '../redux/chatSlice'
+import { setChat, returnChat, setHistory } from '../redux/chatSlice'
 import { setSocket } from '../redux/socketSlice'
 
 const ShowList = () => {
@@ -16,7 +15,7 @@ const ShowList = () => {
     const login = useSelector(state => state.login)
     const dispatch = useDispatch()
 
-    React.useEffect( () => {
+    React.useEffect( async () => {
         socket.connect()  // manually connecting to socket
 
         socket.on('connect', () => {
@@ -33,6 +32,10 @@ const ShowList = () => {
 
         if (!login) { socket.disconnect() }  // dsconnecting socket if no login credentials
 
+        const res = await axios.get('https://flask-socket-server.shimmer4.repl.co/history')
+        const history = res.data['array']
+        console.log(history)
+        dispatch( setHistory(history) )
     }, [] )
 
     return (
@@ -51,7 +54,6 @@ const ShowList = () => {
                                     msg.time ? <span className={styles.time}> ({msg.time}) </span>
                                     : <></>
                                 }
-                                
                             </p>
                         </div>
                     )

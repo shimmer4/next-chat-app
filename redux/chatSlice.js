@@ -10,11 +10,15 @@ export const chatSlice = createSlice( {
         let tempArray = [action.payload]
         initialState = initialState.concat(tempArray)
     },
+    setHistory: (state, action) => {
+      initialState = action.payload
+      return initialState
+    },
     returnChat: (state) => (initialState)
   }
 } )
 
 // Action creators are generated for each case reducer function
-export const { setChat, returnChat } = chatSlice.actions
+export const { setChat, returnChat, setHistory } = chatSlice.actions
 
 export default chatSlice.reducer
